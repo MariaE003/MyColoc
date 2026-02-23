@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -57,3 +58,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+=======
+# MyColoc
+MyColoc est une application web de gestion de colocation qui permet de suivre les dépenses communes et de répartir automatiquement les dettes entre membres. L’objectif est d’éviter les calculs manuels et d’avoir une vision claire de « qui doit quoi à qui ».
+>>>>>>> 18c54368c1457afa9c6aed721d4cef63744e694b
