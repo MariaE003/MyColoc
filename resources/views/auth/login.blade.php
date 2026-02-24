@@ -145,7 +145,7 @@
 </main>
 
 <footer class="p-6 text-center text-slate-400 text-xs">
-    © {{ date('Y') }} EasyColoc. All rights reserved.
+    © {{ date('Y') }} MyColoc. All rights reserved.
 </footer>
 
 </body>
