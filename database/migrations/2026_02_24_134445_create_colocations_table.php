@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('owner_id');
-            $table->enum('status',['active','cancelled']);
+            $table->enum('status',['active','cancelled'])->default('active');
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

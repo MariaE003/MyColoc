@@ -47,7 +47,7 @@
   </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
 <!-- Top Navigation Bar -->
-<nav class="sticky top-0 z-50 w-full border-b border-primary/10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+<!-- <nav class="sticky top-0 z-50 w-full border-b border-primary/10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
 <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
 <div class="flex items-center gap-2">
 <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white">
@@ -59,6 +59,12 @@
     <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
             @if (Route::has('login'))
                 <nav class="flex items-center justify-end gap-4">
+                    <div class="p-4 border-t border-primary/10">
+                            <a href="{{route('create.colocation')}}" class="w-full py-2.5 bg-primary hover:bg-primary/90 text-white rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-all shadow-md shadow-primary/20">
+                                <span class="material-symbols-outlined text-[20px]">add</span>
+                                    Add colocation
+                            </a>
+                    </div>
                     @auth
                         <a
                             href="{{ url('/dashboard') }}"
@@ -86,8 +92,12 @@
             @endif
         </header>
 </div>
-</div>
-</nav>
+</div> 
+</nav>-->
+@extends('base')
+
+@section('content')
+
 <main>
 <!-- Hero Section -->
 <section class="relative overflow-hidden pt-16 pb-20 lg:pt-24 lg:pb-32">
@@ -271,8 +281,9 @@
 </div>
 </section>
 </main>
+@endsection
 <!-- Simple Footer -->
-    <footer class="border-t border-primary/10 bg-white py-12 dark:bg-background-dark">
+    <!-- <footer class="border-t border-primary/10 bg-white py-12 dark:bg-background-dark">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col items-center justify-between gap-6 sm:flex-row">
         <div class="flex items-center gap-2">
@@ -292,6 +303,6 @@
                         </p>
         </div>
         </div>
-    </footer>
+    </footer> -->
 </body>
 </html>
