@@ -90,14 +90,15 @@
 <h2 class="text-3xl font-black tracking-tight text-slate-900 dark:text-slate-100">Inviter un membre</h2>
 <p class="text-slate-500 dark:text-slate-400 mt-2">Gérez les invitations pour rejoindre votre colocation en toute simplicité.</p>
 </header>
+<!--
 <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 mb-12">
-<!-- Email Invitation Card -->
+Email Invitation Card
 <div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col">
 <div class="h-32 bg-primary/5 flex items-center px-8">
 <div class="size-14 rounded-full bg-primary/10 text-primary flex items-center justify-center">
 <span class="material-symbols-outlined text-3xl">mail</span>
 </div>
-<div class="ml-4">
+ <div class="ml-4">
 <h3 class="font-bold text-lg">Invitation par email</h3>
 <p class="text-sm text-slate-500">Envoyez une invitation directe</p>
 </div>
@@ -116,7 +117,7 @@
 </button>
 </div>
 </div>
-<!-- Link Generation Card -->
+Link Generation Card
 <div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col">
 <div class="h-32 bg-primary/5 flex items-center px-8">
 <div class="size-14 rounded-full bg-primary/10 text-primary flex items-center justify-center">
@@ -139,42 +140,42 @@
 </div>
 <button class="w-full border-2 border-primary text-primary hover:bg-primary/5 font-bold py-3 px-6 rounded-lg transition-all">
                         Générer un nouveau lien
-                    </button>
+                    </button> -->
+<!-- </div>
 </div>
-</div>
-</div><!-- Available Users Section -->
+</div> -->
+<!-- Available Users Section -->
 <section class="mb-12">
 <div class="flex items-center justify-between mb-6">
 <div>
 <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-                Utilisateurs disponibles
-                <span class="text-sm font-normal text-slate-500 ml-2">Candidats recherchant une colocation</span>
+        Utilisateurs disponibles
+        <!-- <span class="text-sm font-normal text-slate-500 ml-2">Candidats recherchant une colocation</span> -->
 </h3>
 </div>
 </div>
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 <!-- User Card 1 -->
-@foreach($users as $user)
-<div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
-<div class="flex items-center gap-4 mb-4">
-<div class="size-12 rounded-full bg-slate-100 overflow-hidden border-2 border-primary/20">
-<img alt="Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AG6AXu9YtN-mH9wU6L3v0o-n8rGzY_eS9F_O8vM0P4e-8l0q_G_I"/>
-</div>
-<div>
-<h4 class="font-bold text-slate-900 dark:text-slate-100">{{$user->name}}</h4>
-<div class="flex items-center gap-1 text-amber-500">
-<!-- <span class="material-symbols-outlined text-sm fill-1">{{$user->email}}</span> -->
-<span class="text-xs font-bold">{{$user->email}}</span>
-<!-- <span class="text-xs text-slate-400 font-normal">(12 avis)</span> -->
-</div> 
-</div>
-</div>
-<button class="w-full py-2 bg-primary/10 hover:bg-primary text-primary hover:text-white rounded-lg font-semibold text-sm transition-all">
-    Inviter
-</button>
-</div>
-@endforeach
+    @foreach($users as $user)
+        <div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex items-center gap-4 mb-4">
+                <div class="size-12 rounded-full bg-slate-100 overflow-hidden border-2 border-primary/20">
+                    <img alt="Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AG6AXu9YtN-mH9wU6L3v0o-n8rGzY_eS9F_O8vM0P4e-8l0q_G_I"/>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 dark:text-slate-100">{{$user->name}}</h4>
+                <div class="flex items-center gap-1 text-amber-500">
+                    <span class="text-xs font-bold">{{$user->email}}</span>
+                </div> 
+            </div>
+        </div>
+
+        <a  href="{{route('envoyer',['id_receiver'=> $user->id])}}" class="w-full w-100 py-2 bg-primary/10 hover:bg-primary text-primary hover:text-white rounded-lg font-semibold text-sm transition-all">
+            Inviter
+        </a>
+        <!-- </div> -->
+    @endforeach
 <!-- User Card 2 -->
 <!--  
 <div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">

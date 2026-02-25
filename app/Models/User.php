@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use App\Models\Invitation;
+
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -24,6 +26,18 @@ class User extends Authenticatable
         'is_admin',
         'is_banned',
     ];
+
+
+    public function receiver(){
+        return $this->hasMany(Invitation::class, 'receiver_id');
+    }
+
+    public function sender(){
+        return $this->hasMany(Invitation::class, 'sender_id');
+    }
+    public function colocation(){
+        return $this->hasOne(Colocation::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

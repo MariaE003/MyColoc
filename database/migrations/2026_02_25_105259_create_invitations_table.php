@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('sender_id');   
             $table->unsignedBigInteger('receiver_id'); 
             $table->string('token')->unique();
-            $table->enum('status',['en attente','accepter','refuser'])->default('pending');
+            $table->enum('status',['en attente','accepter','refuser'])->default('en attente');
 
             $table->timestamps();
         });
