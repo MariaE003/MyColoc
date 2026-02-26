@@ -75,7 +75,7 @@
 </div>
 <div class="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-primary/5">
 <div class="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden">
-<img class="h-full w-full object-cover" data-alt="Portrait of Lucas, a young man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9gezEt5TP7oqnMq9Y-FQIBbCjZwKkyBia9Y5mcG6bM7BlrYdgS38M01LRBmYh-oZaTkNA6oe_t4J8SlwURXzQaZR2mE3sb4VST8KQhX685h5cVSvLv6qDn-eCUCRjLoBKt9YdJ6lI2Hksvz17_a-S6cJHfKdpq3f78umSy_shzir6N75G4ITZXhvArAFWqwnd8rKu50yIfxCoS7gFXjCXii_MedSBci2Ll2arV0B3vclDZ3KId_fPJ8AdMgoVf9z3I7LadUxdcgi2"/>
+    <img class="h-full w-full object-cover" data-alt="Portrait of Lucas, a young man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9gezEt5TP7oqnMq9Y-FQIBbCjZwKkyBia9Y5mcG6bM7BlrYdgS38M01LRBmYh-oZaTkNA6oe_t4J8SlwURXzQaZR2mE3sb4VST8KQhX685h5cVSvLv6qDn-eCUCRjLoBKt9YdJ6lI2Hksvz17_a-S6cJHfKdpq3f78umSy_shzir6N75G4ITZXhvArAFWqwnd8rKu50yIfxCoS7gFXjCXii_MedSBci2Ll2arV0B3vclDZ3KId_fPJ8AdMgoVf9z3I7LadUxdcgi2"/>
 </div>
 <div>
 <p class="font-bold text-slate-900 dark:text-slate-100">Lucas</p>

@@ -174,47 +174,8 @@ Link Generation Card
         <a  href="{{route('envoyer',['id_receiver'=> $user->id])}}" class="w-full w-100 py-2 bg-primary/10 hover:bg-primary text-primary hover:text-white rounded-lg font-semibold text-sm transition-all">
             Inviter
         </a>
-        <!-- </div> -->
+        </div>
     @endforeach
-<!-- User Card 2 -->
-<!--  
-<div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
-<div class="flex items-center gap-4 mb-4">
-<div class="size-12 rounded-full bg-slate-100 overflow-hidden border-2 border-primary/20">
-<img alt="Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AG6AXu-mK9rN8P_zV2p_k7z_G6rN9Y_eS9F_O8vM0P4e-8l0q_G_I"/>
-</div>
-<div>
-<h4 class="font-bold text-slate-900 dark:text-slate-100">Emma Morel</h4>
-<div class="flex items-center gap-1 text-amber-500">
-<span class="material-symbols-outlined text-sm fill-1">star</span>
-<span class="text-xs font-bold">4.7</span>
-<span class="text-xs text-slate-400 font-normal">(8 avis)</span>
-</div>
-</div>
-</div>
-<button class="w-full py-2 bg-primary/10 hover:bg-primary text-primary hover:text-white rounded-lg font-semibold text-sm transition-all">
-                Inviter
-            </button>
-</div> -->
-<!-- User Card 3 -->
-<!-- <div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
-<div class="flex items-center gap-4 mb-4">
-<div class="size-12 rounded-full bg-slate-100 overflow-hidden border-2 border-primary/20">
-<img alt="Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AG6AXu_R9p_mH9wU6L3v0o-n8rGzY_eS9F_O8vM0P4e-8l0q_G_I"/>
-</div>
-<div>
-<h4 class="font-bold text-slate-900 dark:text-slate-100">Kevin Petit</h4>
-<div class="flex items-center gap-1 text-amber-500">
-<span class="material-symbols-outlined text-sm fill-1">star</span>
-<span class="text-xs font-bold">4.5</span>
-<span class="text-xs text-slate-400 font-normal">(15 avis)</span>
-</div>
-</div>
-</div>
-<button class="w-full py-2 bg-primary/10 hover:bg-primary text-primary hover:text-white rounded-lg font-semibold text-sm transition-all">
-                Inviter
-            </button> 
-</div>-->
 </div>
 </section>
 <!-- Pending Invitations Table -->

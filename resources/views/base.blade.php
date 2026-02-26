@@ -11,6 +11,14 @@
             @if (Route::has('login'))
                 <nav class="flex items-center justify-end gap-4">
                     @auth
+                    <!-- si il est dans une colocation -->
+                    <div class="p-4 border-t border-primary/10">
+                            <a href="{{route('mycolocation')}}" class="w-full py-2.5 bg-primary hover:bg-primary/90 text-white rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-all shadow-md shadow-primary/20">
+                                <span class="material-symbols-outlined text-[20px]">add</span>
+                                    My colocation
+                            </a>
+                    </div>
+
                     <div class="p-4 border-t border-primary/10">
                             <a href="{{route('create.colocation')}}" class="w-full py-2.5 bg-primary hover:bg-primary/90 text-white rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-all shadow-md shadow-primary/20">
                                 <span class="material-symbols-outlined text-[20px]">add</span>

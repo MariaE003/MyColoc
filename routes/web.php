@@ -4,6 +4,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\colocationController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\InvitationController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\DepenseController;
+
 use Illuminate\Support\Facades\Route;
 use App\Models\Invitation;
 
@@ -29,11 +32,6 @@ Route::get('/users-disponible',[UserController::class,'usersConnecter'])->name('
 
 Route::get('/envoyer/{id_receiver}',[InvitationController::class,'envoyerInvitation'])->name('envoyer');
 
-// Route::get('/accepterInvitation',[InvitationController::class,'accepterInvitation'])->name('accepter');
-// Route::get('/refuseInvitation',[InvitationController::class,'refuserInvitation'])->name('refuser');
-
-
-
 
 // ouvrire invit (accepter / refuse)
 Route::get('/invitation/{token}', function ($token) {
@@ -45,8 +43,20 @@ Route::get('/invitation/{token}', function ($token) {
 
 Route::post('/invitation/accept/{token}', [InvitationController::class,'accepterInvitation'])->name('invitation.accept')->middleware('auth');
 Route::post('/invitation/refuse/{token}', [InvitationController::class,'refuserInvitation'])->name('invitation.refuse')->middleware('auth');
+// my coloc
+Route::get('/mycolocation', [MemberController::class,'myColocation'])->name('mycolocation')->middleware('auth');
 
+// depense
+Route::get('/add.depense', [DepenseController::class,'create'])->name('add.depense')->middleware('auth');
 
+// depense
+Route::post('/save.depense', [DepenseController::class,'save'])->name('save.depense')->middleware('auth');
+Route::get('/show.depense', [DepenseController::class,'show'])->name('show.depense')->middleware('auth');
+Route::get('/depense/{id}/paid',[DepenseController::class,'markerPaye'])->name('depense.paid')->middleware('auth');
+
+// Route::get('add.depense',function() {
+//     return view('depense.addDepense');
+// })->name('add.depense');
 
 
 require __DIR__.'/auth.php';
