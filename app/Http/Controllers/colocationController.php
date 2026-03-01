@@ -10,7 +10,6 @@ use Carbon\Carbon;
 
 class colocationController extends Controller
 {
-    //
     public function create(){
         return view('createColocation');
     }
@@ -19,6 +18,17 @@ class colocationController extends Controller
         $validation=$request->validate([
             'name'=>'required|string|max:255'
         ]);
+        
+        if(Colocation::where('status','active')->where('owner_id',auth()->id())->exists()){
+            return back()->with('error','vous avez deja creer une colocation');
+        }
+        if (Member::where('user_id', auth()->id())
+            ->whereNull('left_at')
+            ->whereHas('colocation', function($q) {
+                $q->where('status', 'active');
+            })->exists()) {
+                return back()->with('error', "vous etes deja membre d'une colocation active");
+        }
         $colo=Colocation::create([
             'name'=>$request->name,
             'owner_id'=>auth()->id(),
@@ -32,6 +42,19 @@ class colocationController extends Controller
         'left_at' => null, 
     ]);
 
-        return redirect('/users-disponible');
+        return redirect('/mycolocation');
+    }
+
+    public function cancelColocation($id){
+
+        $colocation=Colocation::find($id);
+        if ($colocation->owner_id !== auth()->id()) {
+            abort(403);
+        }
+
+        $colocation->status="cancelled";
+        $colocation->save();
+
+        return redirect("/");
     }
 }
