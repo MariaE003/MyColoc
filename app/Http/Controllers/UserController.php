@@ -16,5 +16,17 @@ class UserController
         $users = User::with('member.colocation')->where('id','!=',auth()->id())->get();
         return view('admin', compact('users','usersCount','colocationCount'));
     }
-
+    
+    public function banner($id){
+        $user = User::find($id);
+        $user->is_banned = true;
+        $user->save();
+        return  redirect('admin');
+    }
+    public function debaner($id){
+        $user = User::find($id);
+        $user->is_banned = false;
+        $user->save();
+        return redirect('admin');
+    }
 }
