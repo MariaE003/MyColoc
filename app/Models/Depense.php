@@ -9,7 +9,7 @@ use App\Models\Categorie;
 class Depense extends Model
 {
     protected $fillable=[
-        'title','montant','date','payer_id','colocation_id','categorie_id'
+        'title','montant','date','payer_id','colocation_id','categorie_id','is_paid'
     ];
     public function colocation(){
         return $this->belongsTo(Colocation::class);
@@ -20,4 +20,7 @@ class Depense extends Model
     public function payer(){
         return $this->belongsTo(User::class,'payer_id');
     } 
+    public function payments(){
+        return $this->hasMany(Payment::class);
+    }
 }
