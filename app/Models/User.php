@@ -38,10 +38,20 @@ class User extends Authenticatable
         return $this->hasMany(Invitation::class, 'sender_id');
     }
     public function colocation(){
-        return $this->hasOne(Colocation::class);
+        return $this->hasOne(Colocation::class, 'owner_id');
     }
     public function member(){
         return $this->hasOne(Member::class);
+    }
+    public function depenses(){ 
+        return $this->hasMany(Depense::class,'payer_id'); 
+    }
+    public function paymentsSent(){
+        return $this->hasMany(Payment::class, 'payer_id');
+    }
+
+    public function paymentsReceived(){
+        return $this->hasMany(Payment::class, 'receiver_id');
     }
 
     /**

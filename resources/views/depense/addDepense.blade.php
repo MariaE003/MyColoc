@@ -66,9 +66,9 @@
 <div class="w-full max-w-[480px] min-h-screen bg-white dark:bg-background-dark shadow-sm flex flex-col relative">
 <!-- Header -->
 <header class="sticky top-0 z-10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-4 flex items-center border-b border-slate-200 dark:border-slate-800">
-<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<a href="{{route('mycolocation')}}" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
 <span class="material-symbols-outlined text-slate-700 dark:text-slate-300">arrow_back</span>
-</button>
+</a>
 <h1 class="flex-1 text-center text-lg font-bold tracking-tight pr-10">New Expense</h1>
 </header>
 <!-- Form Content -->
@@ -127,25 +127,7 @@
             </select>
             </div>
             </div>
-        <!-- Split With Section -->
-        <div class="space-y-3">
-        <div class="flex items-center justify-between px-1">
-        <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300">Split with</label>
-        <button class="text-xs font-bold text-primary" type="button">SELECT ALL</button>
-        </div>
-        <div class="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden divide-y divide-slate-100 dark:divide-slate-800">
-            
-            @foreach($members as $member )
-                <label class="flex items-center gap-3 p-4 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                    <input checked="" class="w-5 h-5 rounded border-slate-300 text-primary focus:ring-primary" type="checkbox"/>
-                    <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                    <!-- <span class="text-sm font-bold text-primary">ME</span> -->
-                    </div>
-                    <span class="flex-1 font-medium">{{$member->user->name}}</span>
-                </label>
-            @endforeach
-        </div>
-        </div>
+        
         <footer class="absolute bottom-0 left-0 right-0 p-4 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-t border-slate-200 dark:border-slate-800">
         <button class="w-full h-14 bg-primary text-white font-bold text-lg rounded-xl shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all active:scale-[0.98]" type="submit">
             Save Expense

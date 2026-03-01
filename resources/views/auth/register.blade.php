@@ -57,7 +57,6 @@
 
         <form method="POST" action="{{ route('register') }}" class="space-y-5">
             @csrf
-
             <!-- Name -->
             <div class="flex flex-col gap-2">
                 <label class="text-sm font-semibold">Full Name</label>

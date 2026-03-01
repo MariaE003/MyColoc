@@ -11,8 +11,14 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // global
+        $middleware->web(append: [
+            \App\Http\Middleware\checkBannedUser::class,
+        ]);
+        $middleware->alias([
+            'owner'=>\App\Http\Middleware\OwnerCategorie::class,
+            'checkban'=>\App\Http\Middleware\checkBannedUser::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        //
     })->create();

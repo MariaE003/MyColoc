@@ -12,7 +12,7 @@ class Categorie extends Model
         'name',
     ];
 
-    public function depense(){
+    public function depenses(){
         return $this->hasMany(Depense::class);
     }
 }

@@ -90,60 +90,7 @@
 <h2 class="text-3xl font-black tracking-tight text-slate-900 dark:text-slate-100">Inviter un membre</h2>
 <p class="text-slate-500 dark:text-slate-400 mt-2">Gérez les invitations pour rejoindre votre colocation en toute simplicité.</p>
 </header>
-<!--
-<div class="grid grid-cols-1 xl:grid-cols-2 gap-8 mb-12">
-Email Invitation Card
-<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col">
-<div class="h-32 bg-primary/5 flex items-center px-8">
-<div class="size-14 rounded-full bg-primary/10 text-primary flex items-center justify-center">
-<span class="material-symbols-outlined text-3xl">mail</span>
-</div>
- <div class="ml-4">
-<h3 class="font-bold text-lg">Invitation par email</h3>
-<p class="text-sm text-slate-500">Envoyez une invitation directe</p>
-</div>
-</div>
-<div class="p-8 space-y-6 flex-1">
-<div>
-<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Adresse email du futur colocataire</label>
-<div class="relative">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">alternate_email</span>
-<input class="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg focus:ring-primary focus:border-primary" placeholder="exemple@email.fr" type="email"/>
-</div>
-</div>
-<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
-<span>Envoyer l'invitation</span>
-<span class="material-symbols-outlined text-sm">send</span>
-</button>
-</div>
-</div>
-Link Generation Card
-<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col">
-<div class="h-32 bg-primary/5 flex items-center px-8">
-<div class="size-14 rounded-full bg-primary/10 text-primary flex items-center justify-center">
-<span class="material-symbols-outlined text-3xl">link</span>
-</div>
-<div class="ml-4">
-<h3 class="font-bold text-lg">Lien d'invitation</h3>
-<p class="text-sm text-slate-500">Partagez un lien unique</p>
-</div>
-</div>
-<div class="p-8 space-y-6 flex-1">
-<p class="text-sm text-slate-600 dark:text-slate-400">Générez un lien sécurisé que vous pouvez envoyer par SMS, WhatsApp ou tout autre canal.</p>
-<div class="flex items-center gap-2">
-<div class="flex-1 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-3 rounded-lg text-slate-400 text-sm font-mono truncate italic">
-                            https://easycoloc.app/invite/a7k9-p2q4-m9z2
-                        </div>
-<button class="bg-primary/10 hover:bg-primary/20 text-primary p-3 rounded-lg transition-colors" title="Copier le lien">
-<span class="material-symbols-outlined">content_copy</span>
-</button>
-</div>
-<button class="w-full border-2 border-primary text-primary hover:bg-primary/5 font-bold py-3 px-6 rounded-lg transition-all">
-                        Générer un nouveau lien
-                    </button> -->
-<!-- </div>
-</div>
-</div> -->
+
 <!-- Available Users Section -->
 <section class="mb-12">
 <div class="flex items-center justify-between mb-6">

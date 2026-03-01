@@ -71,7 +71,6 @@
         <!-- FORM -->
         <form method="POST" action="{{ route('login') }}" class="space-y-6">
             @csrf
-
             <!-- Email -->
             <div class="flex flex-col gap-2">
                 <label class="text-sm font-semibold">Email Address</label>
