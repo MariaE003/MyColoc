@@ -5,29 +5,79 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Member;
 use App\Models\User;
+use App\Models\Colocation;
+use App\Models\Payment;
+use App\Models\Depense;
 
 class MemberController extends Controller
 {
     public function mycolocation(){
-        $member=Member::where('user_id',auth()->id())->first();
-        // dd($mycolocation);
-        if (!$member) {
-            return back()->with('error', "vous n'etes dans aucune colocation");
-        }
-        $colocation=$member->colocation;
+        $userId = auth()->id();
 
-        // $members=Member::where('colocation_id',$colocation->id)->get();
-        // // dd($users);
-        // foreach ($members as $member1) {
-        //     $users[]=[
-        //         'user'=> User::where('id',$member1->user_id)->get(),
-        //         'role'=>$role=$member1->role,
-        //     ];
-        //     dd($users);
-        // }
-        $totalMember=Member::count();
-        $members = $colocation->members()->with('user')->get();
-        // dd($members);
-        return view('colocattion.detail',compact('colocation','members','totalMember'));
+        $member = Member::where('user_id', $userId)->whereNull('left_at')
+            ->whereHas('colocation', function ($q) {
+                $q->where('status', 'active');
+            })->first();
+        if (!$member) {
+            return redirect('/dashboard')
+                ->with('error', "vous n'etes dans aucune colocation active");
+        }
+        $colocation = $member->colocation;
+        $members = $colocation->members()->whereNull('left_at')->with('user')->get();
+
+        $totalMember = $members->count();
+        $users = User::where('id', '!=', $userId)->get();
+        
+
+        return view('colocation.detail', compact('colocation', 'members', 'totalMember', 'users'));
+    }
+
+    public function leaveColocation(){
+        $userId = auth()->id();
+        $member = Member::where('user_id', $userId)->whereNull('left_at')
+            ->whereHas('colocation', function ($q) {
+                $q->where('status', 'active');
+            })->first();
+
+        if (!$member) {
+            return back()->with('error', "vous n'etes dans aucune colocation active");
+        }
+
+        if ($member->role === 'owner') {
+            return back()->with('error', "owner ne peut pas quitter la colocation.");
+        }
+        $colocationId = $member->colocation_id;
+        $depenses = Depense::with('payments')->where('colocation_id', $colocationId)->where('is_paid', false)
+            ->get();
+
+        $membersCount = Member::where('colocation_id', $colocationId)->whereNull('left_at')->count();
+
+        $hasDebt = false;
+        foreach ($depenses as $depense) {
+            if ($userId == $depense->payer_id) continue; 
+            $part = $depense->montant / $membersCount;
+
+            $paid = $depense->payments
+                ->where('payer_id', $userId)
+                ->sum('montant');
+
+            if ($paid < $part - 0.01) {
+                $hasDebt = true;
+                break;
+            }
+        }
+
+        $user = User::find($userId);
+
+        if ($hasDebt) {
+            $user->reputation -= 1;
+            $message = "Vous avez quitté avec une dette (-1 réputation).";
+        } else {
+            $user->reputation += 1;
+            $message = "Vous avez quitté sans dette (+1 réputation).";
+        }
+        $user->save();
+        $member->update(['left_at' => now()]);
+        return redirect('/dashboard')->with('success', $message);
     }
 }
