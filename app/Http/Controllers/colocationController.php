@@ -33,7 +33,6 @@ class colocationController extends Controller
             'name'=>$request->name,
             'owner_id'=>auth()->id(),
         ]);
-
         Member::create([
         'user_id' => auth()->id(),
         'colocation_id' => $colo->id,

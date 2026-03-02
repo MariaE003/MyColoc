@@ -80,4 +80,30 @@ class MemberController extends Controller
         $member->update(['left_at' => now()]);
         return redirect('/dashboard')->with('success', $message);
     }
+
+    public function removeMember($colocationId, $userId){
+        $colocation = Colocation::find($colocationId);
+
+        if (!$colocation) {
+            return back()->with('error', "colocation introuvable");
+        }
+        if ($colocation->owner_id != auth()->id()) {
+            abort(403, "vous n'avez pas les droits pour retirer ce membre");
+        }
+        $member = Member::where('colocation_id', $colocation->id)->where('user_id', $userId)->first();
+        if (!$member) {
+            return back()->with('error', "ce membre n'existe pas dans cette colocation");
+        }
+        $depenseIds = $colocation->depenses()->pluck('id');
+        $mony = Payment::where('payer_id', $member->user_id)->whereIn('depense_id', $depenseIds)->where('status', false)->get();
+        // dette => owner
+        foreach ($mony as $payment) {
+            $payment->update([
+                'payer_id' => $colocation->owner_id
+            ]);
+        }
+        $member->delete();
+
+        return back();
+    }
 }

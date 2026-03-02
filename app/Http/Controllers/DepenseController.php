@@ -124,7 +124,4 @@ class DepenseController extends Controller
         }
         return view('depense.showDepense', compact('depenses', 'members', 'balances', 'colocation'));
 }
-
-
-
 }

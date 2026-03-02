@@ -11,7 +11,6 @@
             @if (Route::has('login'))
                 <nav class="flex items-center justify-end gap-4">
                     @auth
-                    <!-- si il est dans une colocation -->
                      @php
                         $isMember = \App\Models\Member::where('user_id', auth()->id())
                             ->whereNull('left_at')
@@ -34,12 +33,21 @@
                                     Add colocation
                             </a>
                     </div>
-                        <a
+                        <!-- <a
                             href="{{ url('/dashboard') }}"
                             class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
                         >
                             Dashboard
+                        </a> -->
+                        <a href="{{ route('profile.edit') }}" class="text-xs font-bold text-gray-700 uppercase tracking-wider">
+                            Profile
                         </a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="text-xs font-bold text-gray-700 uppercase tracking-wider">
+                                Logout
+                            </button>
+                        </form>
                     @else
                         <a
                             href="{{ route('login') }}"
@@ -55,6 +63,7 @@
                                 Register
                             </a>
                         @endif
+
                     @endauth
                 </nav>
             @endif

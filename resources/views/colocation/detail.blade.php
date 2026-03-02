@@ -140,23 +140,6 @@
 <p class="text-2xl font-black text-slate-900">{{$totalMember}}</p>
 </div>
 </div>
-<div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4">
-<div class="size-12 rounded-xl bg-green-50 text-green-600 flex items-center justify-center">
-<span class="material-symbols-outlined">verified</span>
-</div>
-<div>
-<p class="text-sm text-slate-500 font-medium">Avg. Reputation</p>
-<p class="text-2xl font-black text-slate-900">94/100</p>
-</div>
-</div>
-<div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4">
-<div class="size-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
-<span class="material-symbols-outlined">calendar_month</span>
-</div>
-<div>
-<p class="text-sm text-slate-500 font-medium">Next Rent Due</p>
-<p class="text-2xl font-black text-slate-900">Oct 1st</p>
-</div>
 </div>
 </div>
 <!-- Members List Section -->
@@ -212,6 +195,7 @@
 </div>
 
 </div>
+@if(auth()->id() == $colocation->owner_id)
 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden mt-10">
 
     <!-- Header -->
@@ -221,7 +205,7 @@
 
     <!-- Cards -->
     <div class="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
+        
         @foreach($users as $user)
         <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition">
 
@@ -245,11 +229,14 @@
 
         </div>
         @endforeach
-
+        
     </div>
 </div>
+@endif
+
 </div>
 </main>
 </div>
 </div>
-</body></html>
+</body>
+</html>
